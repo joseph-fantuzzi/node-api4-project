@@ -14,11 +14,12 @@ const users = [
 ];
 
 function getUsers() {
-  return users;
+  return Promise.resolve(users);
 }
 
 function insertUser(newUser) {
   users.push(newUser);
+  return Promise.resolve(newUser);
 }
 
 function loginUser(currentUser) {
@@ -28,7 +29,7 @@ function loginUser(currentUser) {
       count++;
     }
   });
-  return count;
+  return Promise.resolve(count);
 }
 
 module.exports = { getUsers, insertUser, loginUser };
