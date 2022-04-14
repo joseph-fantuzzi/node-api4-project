@@ -1,13 +1,15 @@
 const express = require("express");
+const cors = require("cors");
 
 const DB = require("../database/db");
 
 const server = express();
 
 server.use(express.json());
+server.use(cors());
 
 server.get("/", (req, res) => {
-  res.send("working");
+  res.send("Welcome to my backend application!");
 });
 
 server.get("/api/users", (req, res) => {
